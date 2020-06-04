@@ -23,12 +23,16 @@ namespace AnkleBitersCreche1.Pages.Services
         [BindProperty]
         public List<ServiceHeader> ServiceHeader{ get; set; }
 
+        public string UserId { get; set; }
+
         public async Task OnGet(int StudentId)
         {
             ServiceHeader = await _db.ServiceHeader.Include(s => s.Student)
                 .Include(c => c.Student.ApplicationUser)
                 .Where(c => c.StudentId == StudentId)
                 .ToListAsync();
+
+            UserId = _db.Student.Where(u => u.Id == StudentId).ToList().FirstOrDefault().UserId;
         }
     }
 }
