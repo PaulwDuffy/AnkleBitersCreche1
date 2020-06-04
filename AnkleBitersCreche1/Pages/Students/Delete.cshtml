@@ -1,0 +1,69 @@
+﻿@page
+@model AnkleBitersCreche1.Pages.Students.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Delete Student</h2>
+<br />
+<form method="post">
+    <div class=" border  backgroundWhite">
+        <input type="hidden" asp-for="Student.Id" />
+        <input type="hidden" asp-for="Student.UserId" />
+        <div class="form-group row ">
+            <div class="col-2">
+                <label asp-for="Student.PPS" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Student.PPS" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ">
+            <div class="col-2">
+                <label asp-for="Student.FirstName" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Student.FirstName" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ">
+            <div class="col-2">
+                <label asp-for="Student.LastName" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Student.LastName" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ">
+            <div class="col-2">
+                <label asp-for="Student.DOB" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Student.DOB" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ">
+            <div class="col-2">
+                <label asp-for="Student.Gender" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Student.Gender" disabled class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-5 offset-2">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="submit" class="btn btn-danger form-control" value="Delete" />
+                    </div>
+                    <div class="col-6">
+                        <a asp-page="Index" asp-route-userId="@Model.Student.UserId" class="btn btn-success form-control">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

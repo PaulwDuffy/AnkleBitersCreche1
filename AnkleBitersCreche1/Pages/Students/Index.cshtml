@@ -1,0 +1,139 @@
+﻿@page
+@model AnkleBitersCreche1.Pages.Students.IndexModel
+@using AnkleBitersCreche1.Utility
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/pages/Shared/_Layout.cshtml";
+}
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<h2 class="text-info py-2">Student Record For Customer</h2>
+
+<div class="container backgroundWhite">
+    <div class="card">
+        <div class="card-header bg-dark text-light ml-0 row container">
+            <div class=" col-6">
+                <i class="fas fa-child"></i>
+            </div>
+
+
+            <div class="col-6 text-right">
+                @if (User.IsInRole(SD.AdminEndUser))
+                {
+                    <a asp-page="/Users/Index" class="btn btn-outline-info btn-sm">Back To Users</a>
+                }
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row" style="padding-bottom:40px;" padding-top:20px;>
+                <div class="col-md-3">
+                    <p>
+                        <a asp-page="Create" asp-route-userId="@Model.StudentAndCustVM.UserObj.Id" class=" btn btn-info form-control">
+                            <i class="fas fa-plus"></i> &nbsp; Add New Student
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-6 offset-3">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label asp-for="StudentAndCustVM.UserObj.Name"></label>
+                        </div>
+                        <div class="col-sm-8" style="padding-bottom:5px;">
+                            <input asp-for="StudentAndCustVM.UserObj.Name" disabled class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label asp-for="StudentAndCustVM.UserObj.PhoneNumber"></label>
+                        </div>
+                        <div class="col-sm-8" style="padding-bottom:5px;">
+                            <input asp-for="StudentAndCustVM.UserObj.PhoneNumber" disabled class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label asp-for="StudentAndCustVM.UserObj.Email"></label>
+                        </div>
+                        <div class="col-sm-8" style="padding-bottom:5px;">
+                            <input asp-for="StudentAndCustVM.UserObj.Email" disabled class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (Model.StudentAndCustVM.Students.Count() == 0)
+
+            {
+                <p>
+                    No Student Regestered! Please Regester a Student...
+                </p>
+            }
+            else
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondry">
+                        <th>
+                            @Html.DisplayNameFor(m => m.StudentAndCustVM.Students.FirstOrDefault().PPS)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(m => m.StudentAndCustVM.Students.FirstOrDefault().FirstName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(m => m.StudentAndCustVM.Students.FirstOrDefault().LastName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(m => m.StudentAndCustVM.Students.FirstOrDefault().DOB)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.StudentAndCustVM.Students.FirstOrDefault().Gender)
+                        </th>
+
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.StudentAndCustVM.Students)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.PPS)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.DOB)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Gender)
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary text-white" asp-page="edit" asp-route-Id="@item.Id">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    &nbsp; &nbsp;
+                                    <a class="btn btn-danger text-white" asp-page="Delete" asp-route-Id="@item.Id">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+
+    </div>
+</div>

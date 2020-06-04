@@ -34,20 +34,43 @@ namespace AnkleBitersCreche1
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            //Adding Initializer
+            services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>() //adding Identity role
+                .AddDefaultTokenProviders().AddDefaultUI()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            }
+            );
+
+            services.AddAuthentication().AddFacebook(fb =>//adding facebook authentication
+            {
+                fb.AppId = "1460046297460691";
+                fb.AppSecret = "d62e7f2852fc5d7b12f8518721222f5b";
+            });
+
+            //adding Google authentication
+            services.AddAuthentication().AddGoogle(go =>
+            {
+                go.ClientId = "952855436098-6kevv71cddh3q239ahj6ou750sa2dggs.apps.googleusercontent.com";
+                go.ClientSecret = "d4tYuVoeItCiDChz6C1-WNS0";
+            });
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -60,7 +83,7 @@ namespace AnkleBitersCreche1
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            dbInitializer.Initialize();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
