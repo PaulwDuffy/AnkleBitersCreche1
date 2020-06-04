@@ -10,7 +10,7 @@ namespace AnkleBitersCreche1.Models
     public class ServiceHeader
     {
         public int Id { get; set; }
-        public double Age { get; set; }
+        public string Age { get; set; }
         [Required]
         public double TotalPrice { get; set; }
         public string Details { get; set; }

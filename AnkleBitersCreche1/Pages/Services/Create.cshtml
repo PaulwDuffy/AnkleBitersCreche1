@@ -113,6 +113,14 @@
                                         </tr>
                                     </table>
                                 </div>
+
+
+
+
+
+
+
+
                                 <div class="col-5 px-4 pb-2">
                                     <div class="row">
                                         <div class="col-3">
@@ -152,7 +160,7 @@
             var Age = document.getElementById("txtAge").value;
 
             if (Age < 1) {
-                alert("Error!", "Age cannot be empty or 0", "error");
+                swal("Error!", "Age cannot be empty or 0", "error");
                 return false;
             }
 

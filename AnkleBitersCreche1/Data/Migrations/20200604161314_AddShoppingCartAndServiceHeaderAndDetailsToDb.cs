@@ -14,7 +14,7 @@ namespace AnkleBitersCreche1.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Miles = table.Column<double>(nullable: false),
+                    Age = table.Column<string>(nullable: false),
                     TotalPrice = table.Column<double>(nullable: false),
                     Details = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
