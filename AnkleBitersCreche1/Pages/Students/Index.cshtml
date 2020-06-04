@@ -119,6 +119,20 @@
                                 @Html.DisplayFor(m => item.Gender)
                             </td>
                             <td>
+                                <a class="btn btn-secondary" asp-page="../Services/History" asp-route-StudentId="@item.Id">
+                                    <i class="fas fa-history"></i> &nbsp; Service History
+                                </a>
+                            </td>
+                            @*@if (User.IsInRole(SD.AdminEndUser))
+                            {*@
+                            <td>
+                                <a class="btn btn-success" asp-page="../Services/Create" asp-route-StudentId="@item.Id">
+                                    <i class="fas fa-plus"></i> &nbsp; New Service
+                                </a>
+                            </td>
+                            @*}*@
+                            <td>
+                            <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-primary text-white" asp-page="edit" asp-route-Id="@item.Id">
                                         <i class="fas fa-edit"></i>
