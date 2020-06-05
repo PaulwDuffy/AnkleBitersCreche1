@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
+﻿using AnkleBitersCreche1.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
 {
@@ -16,15 +15,18 @@ namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _db;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _db = db;
         }
 
         public string Username { get; set; }
@@ -46,6 +48,13 @@ namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            public string Name { get; set; }
+            public string Address { get; set; }
+            public string City { get; set; }
+            public string PostalCode { get; set; }
+
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -56,16 +65,19 @@ namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            var userName = await _userManager.GetUserNameAsync(user);
-            var email = await _userManager.GetEmailAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var userFromDb = await _db.ApplicationUser.FirstOrDefaultAsync(u => u.Email == user.Email);
 
-            Username = userName;
+            Username = userFromDb.UserName;
 
             Input = new InputModel
             {
-                Email = email,
-                PhoneNumber = phoneNumber
+                Email = userFromDb.Email,
+                PhoneNumber = userFromDb.PhoneNumber,
+                Name = userFromDb.Name,
+                Address = userFromDb.Address,
+                City = userFromDb.City,
+                PostalCode = userFromDb.PostalCode,
+
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -86,27 +98,14 @@ namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            var email = await _userManager.GetEmailAsync(user);
-            if (Input.Email != email)
-            {
-                var setEmailResult = await _userManager.SetEmailAsync(user, Input.Email);
-                if (!setEmailResult.Succeeded)
-                {
-                    var userId = await _userManager.GetUserIdAsync(user);
-                    throw new InvalidOperationException($"Unexpected error occurred setting email for user with ID '{userId}'.");
-                }
-            }
+            var userFromDb = await _db.ApplicationUser.FirstOrDefaultAsync(u => u.Email == user.Email);
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    var userId = await _userManager.GetUserIdAsync(user);
-                    throw new InvalidOperationException($"Unexpected error occurred setting phone number for user with ID '{userId}'.");
-                }
-            }
+            userFromDb.Name = Input.Name;
+            userFromDb.Address = Input.Address;
+            userFromDb.City = Input.City;
+            userFromDb.PostalCode = Input.PostalCode;
+            userFromDb.PhoneNumber = Input.PhoneNumber;
+            await _db.SaveChangesAsync();
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
