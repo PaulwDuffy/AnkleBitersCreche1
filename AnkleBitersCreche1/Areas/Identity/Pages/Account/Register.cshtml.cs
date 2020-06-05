@@ -76,13 +76,17 @@ namespace AnkleBitersCreche1.Areas.Identity.Pages.Account
             [Display(Name = "Postal Code")]
             public string PostalCode { get; set; }
 
-            [Required]
+            [Required, MinLength(10), MaxLength(10)]
             [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
             [Display(Name = "Second Phone Number")]
             public string SecondPhoneNumber { get; set; }
             [Display(Name = "Other Phone Number")]
             public string OtherPhoneNumber { get; set; }
+
+            //[Required, ]
+            //[Display(Name = "Relationship To Child")]
+            //public string Relationship { get; set; }
 
             [Display(Name = "Admin User")]
             public bool IsAdmin { get; set; }

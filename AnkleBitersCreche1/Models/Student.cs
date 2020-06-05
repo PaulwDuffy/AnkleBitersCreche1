@@ -10,7 +10,7 @@ namespace AnkleBitersCreche1.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required, MinLength (8), MaxLength(9)]
         public string PPS { get; set; }
 
         [Required]
@@ -27,6 +27,7 @@ namespace AnkleBitersCreche1.Models
         public string Gender { get; set; }
 
         public string UserId { get; set; }
+
 
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }

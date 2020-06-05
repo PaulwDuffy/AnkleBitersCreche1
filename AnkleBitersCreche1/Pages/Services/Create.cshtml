@@ -159,10 +159,15 @@
         function validateInput() {
             var Age = document.getElementById("txtAge").value;
 
-            if (Age < 1) {
-                swal("Error!", "Age cannot be empty or 0", "error");
+            if (Age < 3) {
+                swal("Error!", "Age must be between 3 and 5", "error");
                 return false;
             }
+            else
+                if (Age > 5) {
+                    swal("Error!", "Age must be between 3 and 5", "error");
+                    return false;
+                }
 
         }</script>
 }
