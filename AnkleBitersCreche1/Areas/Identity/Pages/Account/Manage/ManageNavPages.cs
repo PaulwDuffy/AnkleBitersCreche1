@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
+namespace AnkleBitersCreche.Areas.Identity.Pages.Account.Manage
 {
     public static class ManageNavPages
     {

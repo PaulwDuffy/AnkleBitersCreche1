@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models;
-using AnkleBitersCreche1.Models.ViewModel;
-using AnkleBitersCreche1.Utility;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models;
+using AnkleBitersCreche.Models.ViewModel;
+using AnkleBitersCreche.Utility;
 
-namespace AnkleBitersCreche1.Pages.Services
+namespace AnkleBitersCreche.Pages.Services
 {
-    [Authorize(Roles = SD.AdminEndUser)]
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;

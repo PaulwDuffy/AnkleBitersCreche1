@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using AnkleBitersCreche1.Utility;
+using AnkleBitersCreche.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AnkleBitersCreche1.Pages
+namespace AnkleBitersCreche.Pages
 {
     public class IndexModel : PageModel
     {

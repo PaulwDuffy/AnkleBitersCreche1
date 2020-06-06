@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Models
+namespace AnkleBitersCreche.Models
 {
     public class ApplicationUser : IdentityUser //ApplicationUser will be an implementation of IdentityUser
     {

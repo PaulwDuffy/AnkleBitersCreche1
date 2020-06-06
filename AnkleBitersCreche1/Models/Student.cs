@@ -1,8 +1,8 @@
-﻿using AnkleBitersCreche1.Models;
+﻿using AnkleBitersCreche.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AnkleBitersCreche1.Models
+namespace AnkleBitersCreche.Models
 {
     public class Student
     {

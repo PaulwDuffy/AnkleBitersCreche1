@@ -1,4 +1,4 @@
-﻿using AnkleBitersCreche1.Models;
+﻿using AnkleBitersCreche.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 //create a tag helper for pagination
 
-namespace AnkleBitersCreche1.TagHelpers
+namespace AnkleBitersCreche.TagHelpers
 {
 
     [HtmlTargetElement("div", Attributes = "page-model")]

@@ -1,6 +1,6 @@
 ﻿
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models.ViewModel;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Pages.Students
+namespace AnkleBitersCreche.Pages.Students
 {
     [Authorize]
     public class IndexModel : PageModel

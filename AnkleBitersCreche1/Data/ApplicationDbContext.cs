@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using AnkleBitersCreche1.Models;
+using AnkleBitersCreche.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AnkleBitersCreche1.Data
+namespace AnkleBitersCreche.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

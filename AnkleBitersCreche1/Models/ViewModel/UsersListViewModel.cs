@@ -1,10 +1,10 @@
-﻿using AnkleBitersCreche1.Models;
+﻿using AnkleBitersCreche.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Models.ViewModel
+namespace AnkleBitersCreche.Models.ViewModel
 {
     public class UsersListViewModel
     {

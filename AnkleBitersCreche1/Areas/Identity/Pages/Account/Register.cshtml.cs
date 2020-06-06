@@ -1,6 +1,6 @@
-﻿using AnkleBitersCreche1.Utility;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models;
+﻿using AnkleBitersCreche.Utility;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Areas.Identity.Pages.Account
+namespace AnkleBitersCreche.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel

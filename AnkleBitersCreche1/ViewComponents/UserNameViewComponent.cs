@@ -1,4 +1,4 @@
-﻿using AnkleBitersCreche1.Data;
+﻿using AnkleBitersCreche.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.ViewComponents
+namespace AnkleBitersCreche.ViewComponents
 //retrieve the user name from the database to display instead of email.
 {
     public class UserNameViewComponent : ViewComponent

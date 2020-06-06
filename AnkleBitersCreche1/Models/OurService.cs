@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Models
+namespace AnkleBitersCreche.Models
 {
     public class OurService
     {

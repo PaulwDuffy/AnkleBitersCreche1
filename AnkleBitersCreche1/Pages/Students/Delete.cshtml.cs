@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models;
 
-namespace AnkleBitersCreche1.Pages.Students
+namespace AnkleBitersCreche.Pages.Students
 {
     [Authorize]
     public class DeleteModel : PageModel

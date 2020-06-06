@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AnkleBitersCreche1.Data.Migrations
+namespace AnkleBitersCreche.Data.Migrations
 {
     public partial class AddStudentToDb : Migration
     {

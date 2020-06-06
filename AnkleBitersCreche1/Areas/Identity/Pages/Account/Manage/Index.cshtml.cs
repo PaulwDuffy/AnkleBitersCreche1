@@ -1,4 +1,4 @@
-﻿using AnkleBitersCreche1.Data;
+﻿using AnkleBitersCreche.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Areas.Identity.Pages.Account.Manage
+namespace AnkleBitersCreche.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {

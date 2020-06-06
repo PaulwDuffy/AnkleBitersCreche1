@@ -6,19 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models;
 using Microsoft.AspNetCore.Authorization;
-using AnkleBitersCreche1.Utility;
+using AnkleBitersCreche.Utility;
 
-namespace AnkleBitersCreche1.Pages.OurServices
+namespace AnkleBitersCreche.Pages.OurServices
 {
     [Authorize(Roles = SD.AdminEndUser)] //restrictaccess to Admin user
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
-        public EditModel(AnkleBitersCreche1.Data.ApplicationDbContext db)
+        public EditModel(AnkleBitersCreche.Data.ApplicationDbContext db)
         {
            _db = db;
         }

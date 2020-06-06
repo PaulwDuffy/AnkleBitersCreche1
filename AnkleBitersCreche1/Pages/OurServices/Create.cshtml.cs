@@ -1,13 +1,13 @@
 ﻿
-using AnkleBitersCreche1.Models;
-using AnkleBitersCreche1.Utility;
-using AnkleBitersCreche1.Data;
+using AnkleBitersCreche.Models;
+using AnkleBitersCreche.Utility;
+using AnkleBitersCreche.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Pages.OurServices
+namespace AnkleBitersCreche.Pages.OurServices
 {
     [Authorize(Roles = SD.AdminEndUser)] //restrict access to Admin user
     public class CreateModel : PageModel

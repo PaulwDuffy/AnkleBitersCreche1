@@ -1,6 +1,6 @@
-﻿using AnkleBitersCreche1.Models;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Utility;
+﻿using AnkleBitersCreche.Models;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AnkleBitersCreche1.Pages.OurServices
+namespace AnkleBitersCreche.Pages.OurServices
 {
     [Authorize(Roles = SD.AdminEndUser)] //restrictaccess to Admin user
     public class IndexModel : PageModel

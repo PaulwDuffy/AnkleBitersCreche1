@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AnkleBitersCreche1.Models;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models.ViewModel;
-using AnkleBitersCreche1.Utility;
+using AnkleBitersCreche.Models;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models.ViewModel;
+using AnkleBitersCreche.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AnkleBitersCreche1.Pages.Users
+namespace AnkleBitersCreche.Pages.Users
 
 {
     [Authorize(Roles = SD.AdminEndUser)] //restrictaccess to Admin user

@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models;
-using AnkleBitersCreche1.Utility;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models;
+using AnkleBitersCreche.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace AnkleBitersCreche1.Areas.Identity.Pages.Account
+namespace AnkleBitersCreche.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel

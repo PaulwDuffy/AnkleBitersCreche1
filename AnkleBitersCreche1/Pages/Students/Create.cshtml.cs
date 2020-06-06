@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using AnkleBitersCreche1.Data;
-using AnkleBitersCreche1.Models;
+using AnkleBitersCreche.Data;
+using AnkleBitersCreche.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AnkleBitersCreche1.Pages.Students
+namespace AnkleBitersCreche.Pages.Students
 {
     [Authorize]
     public class CreateModel : PageModel

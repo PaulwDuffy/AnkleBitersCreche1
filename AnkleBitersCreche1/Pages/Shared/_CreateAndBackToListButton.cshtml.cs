@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AnkleBitersCreche1.Pages.Shared
+namespace AnkleBitersCreche.Pages.Shared
 {
     public class CreateAndBackToListButtonModel : PageModel
     {

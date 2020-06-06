@@ -1,11 +1,11 @@
-﻿using AnkleBitersCreche1.Models;
-using AnkleBitersCreche1.Utility;
+﻿using AnkleBitersCreche.Models;
+using AnkleBitersCreche.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 //creating database seed with Admin user account
-namespace AnkleBitersCreche1.Data
+namespace AnkleBitersCreche.Data
 {
     public class DbInitializer : IDbInitializer
     {
