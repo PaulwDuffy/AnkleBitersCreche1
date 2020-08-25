@@ -75,7 +75,7 @@ namespace AnkleBitersCreche.Pages.Users
                     }
                 }
             }
-
+            
 
             //Filter list based on Search Criteria
             var count = UsersListVM.ApplicationUserList.Count;

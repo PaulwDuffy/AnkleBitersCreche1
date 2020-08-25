@@ -62,7 +62,7 @@ namespace AnkleBitersCreche
             services.AddAuthentication().AddGoogle(go =>
             {
                 go.ClientId = "952855436098-6kevv71cddh3q239ahj6ou750sa2dggs.apps.googleusercontent.com";
-                go.ClientSecret = "d4tYuVoeItCiDChz6C1-WNS0";
+                go.ClientSecret = "vRluycWy3-EfSLE5ye6DtuGQ";
             });
 
 
